@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>przetyczka</title>
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<style>
+	ul{list-style:none;}
+a{text-decoration:none;}
+.more{color:red; cursor:pointer;}
+	</style>
+
+  </head>
+    
+  <body>
+  Wyobraźcie sobie wielką piramidę podzieloną na różne poziomy. Każdy poziom reprezentuje różne grupy żywności,
+które są ważne dla naszego zdrowia.
+
+<div id="menu2">
+  <ul class="term-list">
+    <li class="term-item ">Podstawa Piramidy – Warzywa i Owoce:
+Na samym dole piramidy znajdują się warzywa i owoce. Są one pełne witamin, minerałów i błonnika. Pamiętajcie, żeby
+jeść dużo różnych warzyw i owoców – im więcej kolorów na talerzu, tym lepiej! Czy wiedzieliście, że marchewka
+pomaga widzieć w ciemności, a jabłka utrzymują zęby w zdrowiu?</li>
+    <li class="term-item ">Drugi Poziom – Zboża:
+Tuż nad warzywami i owocami są zboża. Chodzi o takie produkty jak chleb, makarony, ryż czy płatki śniadaniowe.
+Najlepiej wybierać te pełnoziarniste, ponieważ mają więcej błonnika i sprawiają, że dłużej czujemy się najedzeni.</li>
+    <li class="term-item ">Trzeci Poziom – Białko:
+Teraz czas na białko. Znajdziecie je w mięsie, rybach, jajkach, orzechach i roślinach strączkowych, jak fasola czy groch.
+Białko jest jak budulec dla naszych mięśni i pomaga nam rosnąć silnymi.</li>
+    <li class="term-item ">Czwarty Poziom – Nabiał:
+Tu mamy produkty takie jak mleko, jogurt czy sery. Są one ważne, bo zawierają wapń, który jest potrzebny do mocnych
+kości i zębów.</li>
+    <li class="term-item ">Wierzchołek Piramidy – Słodycze i Tłuszcze:
+Na samym szczycie piramidy są rzeczy, które powinniśmy jeść rzadko, jak słodycze, ciastka, chipsy czy napoje
+gazowane. Są smaczne, ale nie dają naszemu ciału wielu ważnych składników odżywczych.
+Teraz czas na ciekawostki dotyczące produktów w piramidzie żywieniowej.</li>
+    <li class="term-item ">Kolorowe Warzywa i Owoce: Czy wiedzieliście, że kolor warzyw i owoców mówi nam, jakie mają witaminy? Na
+przykład, czerwone owoce jak truskawki są bogate w witaminę C, zielone warzywa jak szpinak zawierają dużo żelaza, a
+pomarańczowe warzywa jak marchewka są pełne witaminy A, która pomaga w widzeniu w nocy.</li>
+    <li class="term-item ">Supermoc Błonnika: Błonnik, który znajduje się w pełnoziarnistych produktach, owocach i warzywach, jest jak
+superbohater dla naszego brzucha. Pomaga trawić jedzenie i sprawia, że czujemy się sytymi na dłużej. Co więcej,
+błonnik pomaga utrzymać zdrowe serce i może nawet chronić przed niektórymi chorobami. </li>
+	<li class="term-item ">Tajemnicze Bakterie w Jogurcie: W jogurcie żyją małe, dobre bakterie nazywane probiotykami. One pomagają trawić
+jedzenie i dbają o nasz brzuch. To jak mieć małych przyjaciół wewnątrz, którzy pomagają nam być zdrowymi! </li>
+	<li class="term-item ">Magiczne Ziarna: Ziarna quinoa inaczej komosa ryżowa to jedno z nielicznych roślinnych źródeł białka, które zawiera
+wszystkie niezbędne aminokwasy, czyli budulce białka. To sprawia, że quinoa jest jak magiczne ziarno dla wegetarian. </li>
+	<li class="term-item ">Woda – Źródło Energii: Czy wiecie, że nasze ciało w większości składa się z wody? Picie wody jest super ważne,
+abyśmy czuli się dobrze i mieli dużo energii. Woda pomaga w trawieniu, utrzymuje naszą skórę zdrową i pomaga nam
+myśleć. </li>
+	<li class="term-item ">Tęcza na Talerzu: Im więcej kolorów na talerzu, tym lepiej. Każdy kolor warzyw i owoców ma inne korzyści zdrowotne,
+więc jedząc różnorodnie, dostarczamy naszemu ciału wszystkiego, co potrzebne do wzrostu i nauki. </li>
+	<li class="term-item ">Czekolada na Zdrowie: Ciemna czekolada, w małych ilościach, może być dobra dla zdrowia. Zawiera antyoksydanty,
+które pomagają chronić nasze serce. Ale pamiętajcie, że to nadal słodycz i powinna być spożywana z umiarem.
+Pamiętajcie, zdrowe jedzenie to nie tylko warzywa i owoce. Ważna jest różnorodność! Jedząc różne rzeczy z każdej
+części piramidy, dajecie swojemu ciału wszystko, czego potrzebuje do wzrostu, nauki i zabawy. </li>
+	
+
+  </ul>
+</div>
+
+    <script>
+	$('ul.term-list').each(function(){
+  var LiN = $(this).find('li').length;
+  if( LiN > 3){    
+    $('li', this).eq(2).nextAll().hide().addClass('toggleable');
+    $(this).append('<li class="more">Więcej...</li>');    
+  }  
+});
+$('ul.term-list').on('click','.more', function(){
+  if( $(this).hasClass('less') ){    
+    $(this).text('Więcej...').removeClass('less');    
+  }else{
+    $(this).text('Mniej...').addClass('less'); 
+  }
+  $(this).siblings('li.toggleable').slideToggle(); 
+});
+	</script>
+	
+	<script>
+const iframe = document.getElementById('myIframe');
+iframe.onload = function() {
+    iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+};	
+	</script>
+
+  </body>
+  
+</html>
